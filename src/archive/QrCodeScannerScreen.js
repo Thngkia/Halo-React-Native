@@ -30,7 +30,7 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 import {RNCamera} from 'react-native-camera';
 import QRCode from 'react-native-qrcode-svg';
 
-class App extends Component {
+class QrScanner extends Component {
   state = {
     qr: '',
   };
@@ -120,4 +120,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default QrScanner;
