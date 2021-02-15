@@ -1,6 +1,7 @@
 import axios from 'axios';
+import {API_URL} from '@env';
 
-const baseUrl = 'http://192.168.10.142:8000/api';
+const baseUrl = API_URL;
 
 const axiosInstance = axios.create({
   baseURL: baseUrl,
@@ -10,6 +11,7 @@ const axiosInstance = axios.create({
 const lumoAPI = {
   getAllProducts: () => {
     console.log('get products');
+    console.log(API_URL);
     return axiosInstance.get(`/products`);
   },
   getProductById: (id) => {

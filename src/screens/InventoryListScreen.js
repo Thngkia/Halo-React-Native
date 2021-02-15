@@ -11,7 +11,6 @@ const InventoryListScreen = () => {
       .getAllProducts()
       .then((response) => {
         setInventoryList(response.data);
-        console.log(response.data);
       })
       .catch((err) => {
         console.log(err);
