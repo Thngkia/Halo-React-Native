@@ -10,8 +10,6 @@ const axiosInstance = axios.create({
 
 const lumoAPI = {
   getAllProducts: () => {
-    console.log('get products');
-    console.log(API_URL);
     return axiosInstance.get(`/products`);
   },
   getProductById: (id) => {
@@ -28,7 +26,6 @@ const lumoAPI = {
     });
   },
   postReceiptByUser: (data) => {
-    console.log(data.toString());
     return axiosInstance.post('/receipts/?user=2', {
       description: 'demo',
       user: 2,

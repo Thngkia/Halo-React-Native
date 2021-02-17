@@ -6,6 +6,7 @@ import BarCodeExampleScreen from './src/screens/BarCodeExampleScreen';
 import ReceiptListScreen from './src/screens/ReceiptListScreen';
 import ReceiptDetailScreen from './src/screens/ReceiptDetailScreen';
 import InventoryListScreen from './src/screens/InventoryListScreen';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const Stack = createStackNavigator();
 

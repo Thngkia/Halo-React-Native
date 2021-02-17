@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
 import {RNCamera} from 'react-native-camera';
-import {Button} from 'react-native-elements';
+import {Button, ListItem, BottomSheet} from 'react-native-elements';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import lumoAPI from '../apis/lumoApi';
 
@@ -13,7 +13,8 @@ const BarCodeExampleScreen = () => {
     lumoAPI
       .getProductByBarcode(e.data)
       .then((response) => {
-        setBarcodeList([...barcodeList, response.data[0].description]);
+        setBarcodeList([...barcodeList, response.data[0]]);
+        // console.log(barcodeList);
       })
       .catch((err) => {
         console.log(err);
@@ -21,8 +22,10 @@ const BarCodeExampleScreen = () => {
   };
 
   onReceiptSubmit = () => {
+    let list = [];
+    barcodeList.forEach((item) => list.push(item.description));
     lumoAPI
-      .postReceiptByUser(barcodeList)
+      .postReceiptByUser(list)
       .then((response) => {
         console.log(response);
       })
@@ -40,6 +43,16 @@ const BarCodeExampleScreen = () => {
     }
   };
 
+  onItemDelete = (e) => {
+    let newList = [];
+    for (let i = 0; i < barcodeList.length; i++) {
+      if (i != e) {
+        newList.push(barcodeList[i]);
+      }
+    }
+    setBarcodeList(newList);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -52,11 +65,6 @@ const BarCodeExampleScreen = () => {
           flashMode={flash}
           cameraProps={{captureAudio: false}}
           topContent={<Text>Scan barcode</Text>}
-          // bottomContent={
-          //   <TouchableOpacity style={styles.buttonTouchable}>
-          //     <Text>{barcodeList}</Text>
-          //   </TouchableOpacity>
-          // }
         />
         <View
           style={{
@@ -80,11 +88,20 @@ const BarCodeExampleScreen = () => {
             onPress={() => onReceiptSubmit()}
           />
         </View>
-
         <View style={styles.body}>
           <View style={styles.sectionContainer}>
             {barcodeList.map((item, index) => (
-              <Text key={index}>{item}</Text>
+              <ListItem key={index} bottomDivider>
+                <ListItem.Content>
+                  <ListItem.Title>{item.description}</ListItem.Title>
+                  <ListItem.Title>${item.price}</ListItem.Title>
+                </ListItem.Content>
+                <Button
+                  style={styles.buttons}
+                  title="Delete"
+                  onPress={() => onItemDelete(index)}
+                />
+              </ListItem>
             ))}
           </View>
         </View>
