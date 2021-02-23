@@ -31,4 +31,8 @@ Libraries: Cocoapods, NodeJS, RNcamera, React-Native-Elements
 
 ### MVP
 
-![Home](https://thngkia.github.io/project4-react-native/images/home)
+![Home](https://github.com/Thngkia/Project4-React-Native/blob/master/images/home.png)
+![barcodescreen](https://github.com/Thngkia/Project4-React-Native/blob/master/images/barcodescreen.png)
+![Inventorylist](https://github.com/Thngkia/Project4-React-Native/blob/master/images/invetorylist.png)
+![receiptlist](https://github.com/Thngkia/Project4-React-Native/blob/master/images/receiptlist.png)
+![receiptdetail](https://github.com/Thngkia/Project4-React-Native/blob/master/images/receiptdetail.png)
