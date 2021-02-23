@@ -33,6 +33,6 @@ Libraries: Cocoapods, NodeJS, RNcamera, React-Native-Elements
 
 ![Home](https://github.com/Thngkia/Project4-React-Native/blob/master/images/home.png)
 ![barcodescreen](https://github.com/Thngkia/Project4-React-Native/blob/master/images/barcodescreen.png)
-![Inventorylist](https://github.com/Thngkia/Project4-React-Native/blob/master/images/invetorylist.png)
+![Inventorylist](https://github.com/Thngkia/Project4-React-Native/blob/master/images/inventorylist.png)
 ![receiptlist](https://github.com/Thngkia/Project4-React-Native/blob/master/images/receiptlist.png)
 ![receiptdetail](https://github.com/Thngkia/Project4-React-Native/blob/master/images/receiptdetail.png)
